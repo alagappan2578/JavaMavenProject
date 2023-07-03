@@ -33,7 +33,7 @@ public class TestCreateUser {
 		Exception exception = assertThrows(Exception.class, ()->{
 			userService.create(null);
 		});
-		String exceptedMessage = "Invalid user input.";
+		String exceptedMessage = "Invalid user input";
 		String actualMessage = exception.getMessage();
 		assertTrue(exceptedMessage.equals(actualMessage));
 	}
