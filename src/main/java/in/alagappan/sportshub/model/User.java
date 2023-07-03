@@ -60,7 +60,7 @@ public class User {
 	String lastName;
 	String email;
 	String Password;
-	boolean isActive;
+	boolean isActive = true;
 	
 	public String fullName() {
 		return firstName.concat(" ").concat(lastName);
