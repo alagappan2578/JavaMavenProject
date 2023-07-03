@@ -1,24 +1,30 @@
 package in.alagappan.sportshub.validation;
 
+import in.alagappan.sportshub.exception.ValidationException;
 import in.alagappan.sportshub.model.User;
+import in.alagappan.sportshub.util.StringUtil;
 
 public class UserValidator {
 
-	public static boolean validate(User user) throws Exception {
+	public static void validate(User user) throws ValidationException {
 		
 		if(user == null) {
-			throw new Exception("Invalid user input");
+			throw new ValidationException("Invalid user input");
 		}
-		if(user.getEmail() == null || "".equals(user.getEmail().trim())) {
-			throw new Exception("Email can't be null or empty");
-		}
-		if(user.getPassword() == null || "".equals(user.getPassword().trim())) {
-			throw new Exception("Password can't be null or empty");
-		}
-		if(user.getFirstName() == null || "".equals(user.getFirstName().trim())) {
-			throw new Exception("Firstname can't be null or empty");
-		}
-		return false;
+		
+		StringUtil.rejectIfInvalidString(user.getEmail(), "Email");
+		StringUtil.rejectIfInvalidString(user.getPassword(), "Password");
+		StringUtil.rejectIfInvalidString(user.getFirstName(), "FirstName");
+//		if(user.getEmail() == null || "".equals(user.getEmail().trim())) {
+//			throw new ValidationException("Email can't be null or empty");
+//		}
+//		if(user.getPassword() == null || "".equals(user.getPassword().trim())) {
+//			throw new ValidationException("Password can't be null or empty");
+//		}
+//		if(user.getFirstName() == null || "".equals(user.getFirstName().trim())) {
+//			throw new ValidationException("Firstname can't be null or empty");
+//		}
+	
 	}
 	
 }
