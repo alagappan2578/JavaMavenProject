@@ -31,6 +31,12 @@ public class UserService {
 	 	UserDAO userDAO = new UserDAO();
 		userDAO.delete(id);
 }
+ 
+ public User findById(int id) {
+		UserDAO userDao = new UserDAO();
+		User user = userDao.findById(id);
+		return user;
+	}
 
  
 }

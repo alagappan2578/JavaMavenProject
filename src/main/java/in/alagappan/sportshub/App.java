@@ -1,8 +1,8 @@
 package in.alagappan.sportshub;
 
-import in.alagappan.sportshub.service.UserService;
+import in.alagappan.sportshub.service.*;
 
-import in.alagappan.sportshub.model.User;
+import in.alagappan.sportshub.model.*;
 public class App {
  public static void main(String[] args) {
 	 try {
@@ -40,6 +40,39 @@ public class App {
 			userService.delete(001);
 		 
 			userService.getAll();
+			
+//			task 
+			TaskService taskService = new TaskService();
+			
+			Task newTask1 = new Task();
+			newTask1.setId(001);
+			newTask1.setName("Run");
+			newTask1.setDueDate("20-07-2023");
+			newTask1.setActive(true);
+			
+			taskService.create(newTask1);
+			
+			Task newTask2 = new Task();
+			newTask2.setId(002);
+			newTask2.setName("Swim");
+			newTask2.setDueDate("21-07-2023");
+			newTask2.setActive(true);
+			
+			taskService.create(newTask2);
+			
+			Task updateTask = new Task();
+			updateTask.setId(001);
+			updateTask.setName("Run");
+			updateTask.setDueDate("30-07-2023");
+			updateTask.setActive(true);
+			
+			taskService.update(001,updateTask);
+			
+			taskService.delete(001);
+		 
+			taskService.getAll();
+			
+			
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
