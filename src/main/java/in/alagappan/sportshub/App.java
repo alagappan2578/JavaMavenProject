@@ -47,7 +47,7 @@ public class App {
 			Task newTask1 = new Task();
 			newTask1.setId(001);
 			newTask1.setName("Run");
-			newTask1.setDueDate("20-07-2023");
+			newTask1.setDueDate("30/07/2023");
 			newTask1.setActive(true);
 			
 			taskService.create(newTask1);
@@ -55,7 +55,7 @@ public class App {
 			Task newTask2 = new Task();
 			newTask2.setId(002);
 			newTask2.setName("Swim");
-			newTask2.setDueDate("21-07-2023");
+			newTask2.setDueDate("20/07/2023");
 			newTask2.setActive(true);
 			
 			taskService.create(newTask2);
@@ -63,7 +63,7 @@ public class App {
 			Task updateTask = new Task();
 			updateTask.setId(001);
 			updateTask.setName("Run");
-			updateTask.setDueDate("30-07-2023");
+			updateTask.setDueDate("30/07/2023");
 			updateTask.setActive(true);
 			
 			taskService.update(001,updateTask);

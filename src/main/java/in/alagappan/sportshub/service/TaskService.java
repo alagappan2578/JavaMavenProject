@@ -1,6 +1,9 @@
 package in.alagappan.sportshub.service;
 
+import java.time.format.DateTimeParseException;
+
 import in.alagappan.sportshub.dao.TaskDAO;
+import in.alagappan.sportshub.exception.ValidationException;
 import in.alagappan.sportshub.model.Task;
 import in.alagappan.sportshub.validation.TaskValidator;
 
@@ -18,7 +21,16 @@ public class TaskService {
 	 }
 	 
 	 public void create(Task newTask) throws Exception{
-		 	TaskValidator.validate(newTask);
+		 	try {
+				TaskValidator.validate(newTask);
+				
+			}catch(DateTimeParseException e) {
+				throw new ValidationException("Invalid date format (or) Invalid date");
+			}catch (ValidationException e) {
+				
+				throw new ValidationException(e.getMessage());	
+			}
+		 	
 			TaskDAO userDAO = new TaskDAO();
 			userDAO.create(newTask);
 	 }

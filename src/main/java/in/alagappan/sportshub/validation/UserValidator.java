@@ -9,7 +9,7 @@ public class UserValidator {
 	public static void validate(User user) throws ValidationException {
 		
 		if(user == null) {
-			throw new ValidationException("Invalid user input");
+			throw new ValidationException("Invalid task input");
 		}
 		
 		StringUtil.rejectIfInvalidString(user.getEmail(), "Email");
