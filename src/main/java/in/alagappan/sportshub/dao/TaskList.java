@@ -1,7 +1,10 @@
 package in.alagappan.sportshub.dao;
 
-import in.alagappan.sportshub.model.Task;
+import java.util.HashSet;
+import java.util.Set;
+
+import in.alagappan.sportshub.model.TaskEntity;
 
 public class TaskList {
-	public static Task[] listOfUser = new Task [10];
+	public static Set<TaskEntity>  listOfTask = new HashSet<>();
 }

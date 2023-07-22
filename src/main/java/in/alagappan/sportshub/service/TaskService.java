@@ -1,22 +1,25 @@
 package in.alagappan.sportshub.service;
 
 import java.time.format.DateTimeParseException;
+import java.util.Set;
 
 import in.alagappan.sportshub.dao.TaskDAO;
 import in.alagappan.sportshub.exception.ValidationException;
 import in.alagappan.sportshub.model.Task;
+import in.alagappan.sportshub.model.TaskEntity;
+import in.alagappan.sportshub.model.UserEntity;
 import in.alagappan.sportshub.validation.TaskValidator;
 
 public class TaskService {
 	
-	public Task[] getAll(){
+	public Set<TaskEntity> getAll(){
 		 TaskDAO taskDAO = new TaskDAO();
 		 
-		 Task[] taskList = taskDAO.findAll();
+		 Set<TaskEntity> taskList = taskDAO.findAll();
+		 for (TaskEntity name : taskList) {
+	    	 System.out.println(name);		
+					}
 		 
-		 for(int i=0;i<taskList.length;i++) {
-		 System.out.println(taskList[i]);
-		 }
 		 return taskList;
 	 }
 	 
@@ -45,10 +48,9 @@ public class TaskService {
 			userDAO.delete(id);
 	}
 	 
-	 public Task findById(int id) {
+	 public TaskEntity findById(int id) {
 		 	TaskDAO taskDAO = new TaskDAO();
-			Task task = taskDAO.findById(id);
-			return task;
+		 	return taskDAO.findById(id);
 		}
 
 }

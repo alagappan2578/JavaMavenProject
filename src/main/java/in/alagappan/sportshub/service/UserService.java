@@ -1,28 +1,34 @@
 package in.alagappan.sportshub.service;
 
+import java.util.Set;
+
 import in.alagappan.sportshub.dao.UserDAO;
-import in.alagappan.sportshub.model.User;
+import in.alagappan.sportshub.model.UserEntity;
 import in.alagappan.sportshub.validation.UserValidator;
 
 public class UserService {
- public User[] getAll(){
+	
+ public Set<UserEntity> getAll(){
 	 UserDAO userDao = new UserDAO();
 	 
-	 User[] userList = userDao.findAll();
-	 
-	 for(int i=0;i<userList.length;i++) {
-	 System.out.println(userList[i]);
-	 }
+	 Set<UserEntity> userList = userDao.findAll();
+		
+     for (UserEntity name : userList) {
+     	
+    	 System.out.println(name);
+						
+				}
 	 return userList;
  }
  
- public void create(User newUser) throws Exception{
+ public void create(UserEntity newUser) throws Exception{
 	 	UserValidator.validate(newUser);
+	 	
 		UserDAO userDAO = new UserDAO();
 		userDAO.create(newUser);
  }
  
- public void update(int id, User updateUser){
+ public void update(int id, UserEntity updateUser){
 	 	UserDAO userDAO = new UserDAO();
 		userDAO.update(id, updateUser);
 }
@@ -32,10 +38,9 @@ public class UserService {
 		userDAO.delete(id);
 }
  
- public User findById(int id) {
+ public UserEntity findById(int id) {
 		UserDAO userDao = new UserDAO();
-		User user = userDao.findById(id);
-		return user;
+		return userDao.findById(id);
 	}
 
  

@@ -1,45 +1,37 @@
 package in.alagappan.sportshub.dao;
 
-import in.alagappan.sportshub.model.Task;
+import java.util.Set;
 
-public class TaskDAO {
+import in.alagappan.sportshub.Interface.TaskInterface;
+import in.alagappan.sportshub.model.TaskEntity;
 
-	public Task[] findAll() {
+public class TaskDAO implements TaskInterface {
 
-		Task[] userList = TaskList.listOfUser;
-		return userList;
+	public Set<TaskEntity> findAll() {
+		
+		return TaskList.listOfTask; 
 	}
+	@Override
+	public void create(TaskEntity newTask) {
 
-	public void create(Task newTask) {
-
-		Task[] arr = TaskList.listOfUser;
-
-		for (int i = 0; i < arr.length; i++) {
-
-			Task task = arr[i];
-
-			if (task == null) {
-				arr[i] = newTask;
-				break;
-			}
-		}
+		Set<TaskEntity> arr = TaskList.listOfTask;
+		
+		arr.add(newTask);
 	}
+	
+	@Override
+	public void update(int id, TaskEntity updateTask) {
 
-	public void update(int id, Task updateTask) {
-
-		Task[] arr = TaskList.listOfUser;
-
-		for (int i = 0; i < arr.length; i++) {
-
-			Task task = arr[i];
-
-			if (task == null) {
-				continue;
-			}
+		Set<TaskEntity> arr = TaskList.listOfTask;
+		
+        for (TaskEntity name : arr) {
+        	
+        	TaskEntity task = name;
+				
 
 			if (task.getId() == id) {
-				arr[i].setName(updateTask.getName());
-				arr[i].setDueDate(updateTask.getDueDate());
+				task.setName(updateTask.getName());
+				task.setDueDate(updateTask.getDueDate());
 				break;
 			}
 		}
@@ -47,42 +39,35 @@ public class TaskDAO {
 
 	public void delete(int id) {
 
-		Task[] arr = TaskList.listOfUser;
-
-		for (int i = 0; i < arr.length; i++) {
-
-			Task user = arr[i];
-
-			if (user == null) {
-				continue;
-			}
-
-			if (user.getId() == id) {
-				arr[i].setActive(false);
-				break;
-			}
-		}
-	}
-
-	public Task findById(int id) {
-
-		Task[] arr = TaskList.listOfUser;
-		Task userMatch = null;
-
-		for (int i = 0; i < arr.length; i++) {
-
-			Task task = arr[i];
-
-			if (task == null) {
-				continue;
-			}
+		Set<TaskEntity> arr = TaskList.listOfTask;
+		
+        for (TaskEntity name : arr) {
+        	
+        	TaskEntity task = name;
+				
 
 			if (task.getId() == id) {
-				arr[i].setActive(false);
-				userMatch = task;
+				task.setActive(false);
 				break;
 			}
 		}
-		return userMatch;
 	}
+
+	public TaskEntity findById(int id) {
+
+		Set<TaskEntity> arr = TaskList.listOfTask;
+		TaskEntity userMatch = null;				
+				for (TaskEntity name : arr) {
+	        	
+	        	TaskEntity task = name;
+						
+						if(task.getId() == id) {
+							userMatch = task;
+							break;
+						}	
+					}	
+			return userMatch;
+	}
+
+
 }

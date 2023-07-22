@@ -1,7 +1,10 @@
 package in.alagappan.sportshub.dao;
 
-import in.alagappan.sportshub.model.User;
+import java.util.HashSet;
+import java.util.Set;
+
+import in.alagappan.sportshub.model.UserEntity;
 
 public class UserList {
-	public static User[] listOfUser = new User [10];
+	public static Set<UserEntity>  listOfUser = new HashSet<>() ;
 }

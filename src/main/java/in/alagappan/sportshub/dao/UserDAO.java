@@ -1,12 +1,15 @@
 package in.alagappan.sportshub.dao;
 
-import in.alagappan.sportshub.model.User;
+import java.util.Set;
 
-public class UserDAO {
+import in.alagappan.sportshub.Interface.UserInterface;
+import in.alagappan.sportshub.model.UserEntity;
 
-	public User [] findAll() {
+public class UserDAO implements UserInterface{
+
+	public Set<UserEntity> findAll() {
 		
-		User[] userList = UserList.listOfUser;
+		Set<UserEntity>  userList = UserList.listOfUser;
 		return userList; 
 	}
 	
@@ -14,36 +17,27 @@ public class UserDAO {
 	 * 
 	 * @param newUser
 	 */
-	public void create(User newUser) {
+	@Override
+	public void create(UserEntity newUser) {
 		
-		User[] arr = UserList.listOfUser;
+		Set<UserEntity> arr = UserList.listOfUser;
 		
-		for(int i=0;i<arr.length;i++) {
+		arr.add(newUser);
 			
-			User user = arr[i];
-			
-			if(user == null) {
-				arr[i] = newUser;
-				break;
-			}	
-		}	
 	}
-		public void update(int id,User updateUser) {
-				
-				User[] arr = UserList.listOfUser;
-				
-				for(int i=0;i<arr.length;i++) {
-					
-					User user = arr[i];
-					
-					if(user == null) {
-						continue;
-					}
+	@Override
+	public void update(int id,UserEntity updateUser) {
+			
+		Set<UserEntity> arr = UserList.listOfUser;
+			
+        for (UserEntity name : arr) {
+        	
+        	UserEntity user = name;
 					
 					if(user.getId() == id) {
-						arr[i].setFirstName(updateUser.getFirstName());
-						arr[i].setLastName(updateUser.getLastName());
-						arr[i].setPassword(updateUser.getPassword());
+						user.setFirstName(updateUser.getFirstName());
+						user.setLastName(updateUser.getLastName());
+						user.setPassword(updateUser.getPassword());
 						break;
 					}	
 				}	
@@ -51,44 +45,57 @@ public class UserDAO {
 		
 		public void delete(int id) {
 			
-			User[] arr = UserList.listOfUser;
+			Set<UserEntity> arr = UserList.listOfUser;
 			
-			for(int i=0;i<arr.length;i++) {
-				
-				User user = arr[i];
-				
-				if(user == null) {
-					continue;
-				}
-				
-				if(user.getId() == id) {
-					arr[i].setActive(false);
-					break;
-				}	
-			}	
-		}
-		
-		public User findById(int id) {
-					
-					User[] arr = UserList.listOfUser;
-					User userMatch = null;
-					
-					for(int i=0;i<arr.length;i++) {
-						
-						User user = arr[i];
-						
-						if(user == null) {
-							continue;
-						}
+	        for (UserEntity name : arr) {
+	        	
+	        	UserEntity user = name;
 						
 						if(user.getId() == id) {
-							arr[i].setActive(false);
-							userMatch = user;
+							user.setActive(false);
 							break;
 						}	
 					}	
+		}
+		
+		@Override
+		public UserEntity findById(int id) {
+					
+			Set<UserEntity> arr = UserList.listOfUser;
+			UserEntity userMatch = null;				
+					for (UserEntity name : arr) {
+		        	
+		        	UserEntity user = name;
+							
+							if(user.getId() == id) {
+								userMatch = user;
+								break;
+							}	
+						}	
 				return userMatch;
 				}
+
+
+		@Override
+		public UserEntity findByEmailId(String email) {
+			
+			Set<UserEntity> arr = UserList.listOfUser;
+			UserEntity userMatch = null;				
+					for (UserEntity name : arr) {  	
+		        	UserEntity user = name;					
+							if(user.getEmail() == email) {
+								userMatch = user;
+								break;
+							}	
+						}	
+				return userMatch;
+		}
+
+		@Override
+		public int count() {
+			Set<UserEntity>  userList = UserList.listOfUser;
+			return userList.size();
+		}
 	
 	
 }

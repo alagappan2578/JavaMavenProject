@@ -5,10 +5,12 @@ import in.alagappan.sportshub.service.*;
 import in.alagappan.sportshub.model.*;
 public class App {
  public static void main(String[] args) {
+	 
 	 try {
+		 
 		UserService userService = new UserService();
 		 
-		 	User newUser1 = new User();
+		 	UserEntity newUser1 = new User();
 			newUser1.setId(001);
 			newUser1.setFirstName("Alagappan");
 			newUser1.setLastName("Kumaravel");
@@ -16,7 +18,7 @@ public class App {
 			newUser1.setPassword("Aa!a2aa");
 			newUser1.setActive(true);
 			
-			User newUser2 = new User();
+			UserEntity newUser2 = new User();
 			newUser2.setId(002);
 			newUser2.setFirstName("Alagappan");
 			newUser2.setLastName("Kumaravel");
@@ -27,7 +29,7 @@ public class App {
 			userService.create(newUser1);
 			userService.create(newUser2);
 		 
-			User updateUser = new User();
+			UserEntity updateUser = new User();
 			updateUser.setId(001);
 			updateUser.setFirstName("Alagu");
 			updateUser.setLastName("Kumaravel");
@@ -35,7 +37,7 @@ public class App {
 			updateUser.setPassword("Aa!a2aa");
 			updateUser.setActive(true);
 			
-			userService.update(001,updateUser);
+			userService.update(002,updateUser);
 			
 			userService.delete(001);
 		 
@@ -55,7 +57,7 @@ public class App {
 			Task newTask2 = new Task();
 			newTask2.setId(002);
 			newTask2.setName("Swim");
-			newTask2.setDueDate("20/07/2023");
+			newTask2.setDueDate("30/07/2023");
 			newTask2.setActive(true);
 			
 			taskService.create(newTask2);
