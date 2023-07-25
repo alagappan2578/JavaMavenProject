@@ -6,17 +6,17 @@ import java.util.Set;
 import in.alagappan.sportshub.dao.TaskDAO;
 import in.alagappan.sportshub.exception.ValidationException;
 import in.alagappan.sportshub.model.Task;
-import in.alagappan.sportshub.model.TaskEntity;
+import in.alagappan.sportshub.model.Task;
 import in.alagappan.sportshub.model.UserEntity;
 import in.alagappan.sportshub.validation.TaskValidator;
 
 public class TaskService {
 	
-	public Set<TaskEntity> getAll(){
+	public Set<Task> getAll(){
 		 TaskDAO taskDAO = new TaskDAO();
 		 
-		 Set<TaskEntity> taskList = taskDAO.findAll();
-		 for (TaskEntity name : taskList) {
+		 Set<Task> taskList = taskDAO.findAll();
+		 for (Task name : taskList) {
 	    	 System.out.println(name);		
 					}
 		 
@@ -48,7 +48,7 @@ public class TaskService {
 			userDAO.delete(id);
 	}
 	 
-	 public TaskEntity findById(int id) {
+	 public Task findById(int id) {
 		 	TaskDAO taskDAO = new TaskDAO();
 		 	return taskDAO.findById(id);
 		}

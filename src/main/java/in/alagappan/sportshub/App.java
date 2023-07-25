@@ -2,6 +2,13 @@ package in.alagappan.sportshub;
 
 import in.alagappan.sportshub.service.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import in.alagappan.sportshub.model.*;
 public class App {
  public static void main(String[] args) {
@@ -10,38 +17,42 @@ public class App {
 		 
 		UserService userService = new UserService();
 		 
-		 	UserEntity newUser1 = new User();
-			newUser1.setId(001);
-			newUser1.setFirstName("Alagappan");
-			newUser1.setLastName("Kumaravel");
-			newUser1.setEmail("alagappan@gmail.com");
-			newUser1.setPassword("Aa!a2aa");
-			newUser1.setActive(true);
+//		 	User newUser1 = new User();
+//			newUser1.setId(001);
+//			newUser1.setFirstName("Alagappan");
+//			newUser1.setLastName("Kumaravel");
+//			newUser1.setEmail("alagappan@gmail.com");
+//			newUser1.setPassword("Aa!a2aa");
+//			newUser1.setActive(true);
+//			
+//			User newUser2 = new User();
+//			newUser2.setId(002);
+//			newUser2.setFirstName("Alagappan");
+//			newUser2.setLastName("Kumaravel");
+//			newUser2.setEmail("alagappan12@gmail.com");
+//			newUser2.setPassword("Aa!a2aa");
+//			newUser2.setActive(true);
+//			
+//			userService.create(newUser1);
+//			userService.create(newUser2);
+//		 
+//			User updateUser = new User();
+//			updateUser.setId(001);
+//			updateUser.setFirstName("Alagu");
+//			updateUser.setLastName("Kumaravel");
+//			updateUser.setEmail("alagappan@gmail.com");
+//			updateUser.setPassword("Aa!a2aa");
+//			updateUser.setActive(true);
+//			
+//			userService.update(002,updateUser);
+//			
+//			userService.delete(001);
+//		 
+			Set<User> arr = userService.getAll();
 			
-			UserEntity newUser2 = new User();
-			newUser2.setId(002);
-			newUser2.setFirstName("Alagappan");
-			newUser2.setLastName("Kumaravel");
-			newUser2.setEmail("alagappan12@gmail.com");
-			newUser2.setPassword("Aa!a2aa");
-			newUser2.setActive(true);
-			
-			userService.create(newUser1);
-			userService.create(newUser2);
-		 
-			UserEntity updateUser = new User();
-			updateUser.setId(001);
-			updateUser.setFirstName("Alagu");
-			updateUser.setLastName("Kumaravel");
-			updateUser.setEmail("alagappan@gmail.com");
-			updateUser.setPassword("Aa!a2aa");
-			updateUser.setActive(true);
-			
-			userService.update(002,updateUser);
-			
-			userService.delete(001);
-		 
-			userService.getAll();
+			List<User> list = new ArrayList<>(arr);
+			Collections.sort(list);
+			System.out.println(list);
 			
 //			task 
 			TaskService taskService = new TaskService();
@@ -74,7 +85,26 @@ public class App {
 		 
 			taskService.getAll();
 			
-			
+			// adding elements to ArrayList object
+	        ArrayList<String> gfg = new ArrayList<>();
+	        
+	 
+	        gfg.add("data structure");
+	        gfg.add("competitive programming");
+	        gfg.add("Interviews");
+	        gfg.add("FANG");
+	        gfg.add("FANG");
+	 
+	        // pass ArrayList object into the HashSet object
+	        // constructor
+	        HashSet<String> hashSet = new HashSet<>(gfg);
+	 
+	        // printing every element in Set
+	 
+	        for (String value : hashSet) {
+	            System.out.println(value);
+	        }
+
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

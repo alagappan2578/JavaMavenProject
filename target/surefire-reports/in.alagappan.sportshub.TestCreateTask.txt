@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------
+Test set: in.alagappan.sportshub.TestCreateTask
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.053 s <<< FAILURE! - in in.alagappan.sportshub.TestCreateTask
+in.alagappan.sportshub.TestCreateTask.testCreateTaskWithValidationInput()  Time elapsed: 0.01 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: in.alagappan.sportshub.exception.ValidationException: Due date should be in future
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
+	at in.alagappan.sportshub.TestCreateTask.testCreateTaskWithValidationInput(TestCreateTask.java:23)
+Caused by: in.alagappan.sportshub.exception.ValidationException: Due date should be in future
+	at in.alagappan.sportshub.service.TaskService.create(TaskService.java:34)
+	at in.alagappan.sportshub.TestCreateTask.lambda$testCreateTaskWithValidationInput$0(TestCreateTask.java:24)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
+	... 16 more
+

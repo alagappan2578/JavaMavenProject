@@ -1,6 +1,6 @@
 package in.alagappan.sportshub.model;
 
-public abstract class UserEntity implements Comparable<User>{
+public abstract class UserEntity implements Comparable<UserEntity>{
 	int id ;
 	String lastName;
 	String email;
@@ -67,7 +67,7 @@ public abstract class UserEntity implements Comparable<User>{
 	}
 	
 	@Override
-	public int compareTo(User o) {
+	public int compareTo(UserEntity o) {
 
 		if (this.getId() == o.getId()) {
 			return 0;

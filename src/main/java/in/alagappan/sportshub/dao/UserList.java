@@ -3,8 +3,8 @@ package in.alagappan.sportshub.dao;
 import java.util.HashSet;
 import java.util.Set;
 
-import in.alagappan.sportshub.model.UserEntity;
+import in.alagappan.sportshub.model.User;
 
 public class UserList {
-	public static Set<UserEntity>  listOfUser = new HashSet<>() ;
+	public static Set<User>  listOfUser = new HashSet<>() ;
 }

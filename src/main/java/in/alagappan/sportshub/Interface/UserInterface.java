@@ -1,8 +1,8 @@
 package in.alagappan.sportshub.Interface;
 
-import in.alagappan.sportshub.model.UserEntity;
+import in.alagappan.sportshub.model.User;
 
-public interface UserInterface extends Base<UserEntity> {
-	public abstract UserEntity findByEmailId(String email);
+public interface UserInterface extends Base<User> {
+	public abstract User findByEmailId(String email);
 	public abstract int count();
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.alagappan.sportshub.TestCreateUser" time="0.002" tests="8" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.alagappan.sportshub.TestCreateTask" time="0.053" tests="9" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,20 +58,26 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="in.alagappan.sportshub.TestCreateUser.testCreateUserWithInvalidInput" classname="in.alagappan.sportshub.TestCreateUser" time="0">
-    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
-	at in.alagappan.sportshub.TestCreateUser.testCreateUserWithInvalidInput(TestCreateUser.java:40)
-]]></failure>
+  <testcase name="in.alagappan.sportshub.TestCreateTask.testCreateTestWithInvalidInput" classname="in.alagappan.sportshub.TestCreateTask" time="0.003"/>
+  <testcase name="in.alagappan.sportshub.TestCreateTask.testUserDueDateWithInvalidDate" classname="in.alagappan.sportshub.TestCreateTask" time="0.02"/>
+  <testcase name="in.alagappan.sportshub.TestCreateTask.testUserDueDateWithPastDate" classname="in.alagappan.sportshub.TestCreateTask" time="0.013"/>
+  <testcase name="in.alagappan.sportshub.TestCreateTask.testUserDueDateWithInvaildFormat" classname="in.alagappan.sportshub.TestCreateTask" time="0.001"/>
+  <testcase name="in.alagappan.sportshub.TestCreateTask.testUserDueDateWithEmpty" classname="in.alagappan.sportshub.TestCreateTask" time="0"/>
+  <testcase name="in.alagappan.sportshub.TestCreateTask.testCreateTaskWithValidationInput" classname="in.alagappan.sportshub.TestCreateTask" time="0.01">
+    <failure message="Unexpected exception thrown: in.alagappan.sportshub.exception.ValidationException: Due date should be in future" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Unexpected exception thrown: in.alagappan.sportshub.exception.ValidationException: Due date should be in future
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
+	at in.alagappan.sportshub.TestCreateTask.testCreateTaskWithValidationInput(TestCreateTask.java:23)
+Caused by: in.alagappan.sportshub.exception.ValidationException: Due date should be in future
+	at in.alagappan.sportshub.service.TaskService.create(TaskService.java:34)
+	at in.alagappan.sportshub.TestCreateTask.lambda$testCreateTaskWithValidationInput$0(TestCreateTask.java:24)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
+	... 16 more
+</failure>
   </testcase>
-  <testcase name="in.alagappan.sportshub.TestCreateUser.testCreateUserWithValidationInput" classname="in.alagappan.sportshub.TestCreateUser" time="0"/>
-  <testcase name="in.alagappan.sportshub.TestCreateUser.testUserEmailWithEmpty" classname="in.alagappan.sportshub.TestCreateUser" time="0"/>
-  <testcase name="in.alagappan.sportshub.TestCreateUser.testUserPasswordWithEmpty" classname="in.alagappan.sportshub.TestCreateUser" time="0"/>
-  <testcase name="in.alagappan.sportshub.TestCreateUser.testUserFirstNameWithNull" classname="in.alagappan.sportshub.TestCreateUser" time="0"/>
-  <testcase name="in.alagappan.sportshub.TestCreateUser.testUserFirstNameWithEmpty" classname="in.alagappan.sportshub.TestCreateUser" time="0"/>
-  <testcase name="in.alagappan.sportshub.TestCreateUser.testUserEmailWithNull" classname="in.alagappan.sportshub.TestCreateUser" time="0"/>
-  <testcase name="in.alagappan.sportshub.TestCreateUser.testUserPasswordWithNull" classname="in.alagappan.sportshub.TestCreateUser" time="0"/>
+  <testcase name="in.alagappan.sportshub.TestCreateTask.testUserNameWithNull" classname="in.alagappan.sportshub.TestCreateTask" time="0"/>
+  <testcase name="in.alagappan.sportshub.TestCreateTask.testUserNameWithEmpty" classname="in.alagappan.sportshub.TestCreateTask" time="0"/>
+  <testcase name="in.alagappan.sportshub.TestCreateTask.testUserDueDateWithNull" classname="in.alagappan.sportshub.TestCreateTask" time="0.001"/>
 </testsuite>
